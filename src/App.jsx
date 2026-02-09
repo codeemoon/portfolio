@@ -281,58 +281,81 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group grid md:grid-cols-2 gap-8 items-center border-b border-gray-100 dark:border-gray-800 pb-16 last:border-0"
+                className="group border-b border-gray-100 dark:border-gray-800 pb-16 last:border-0"
               >
-                <div className="order-2 md:order-1">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 bg-black text-white dark:bg-white dark:text-black rounded-lg transition-colors">
-                      {project.icon}
+                {/* Mobile: Full width layout, Desktop: Grid */}
+                <div className="md:grid md:grid-cols-2 md:gap-8 md:items-center">
+                  {/* Content Column */}
+                  <div className="md:order-1">
+                    {/* Icon + Featured Project Label */}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="p-3 bg-black text-white dark:bg-white dark:text-black rounded-lg transition-colors">
+                        {project.icon}
+                      </div>
+                      <span className="text-sm font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500">Featured Project</span>
                     </div>
-                    <span className="text-sm font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500">Featured Project</span>
-                  </div>
-                  
-                  <h3 className="text-3xl font-display font-bold mb-4 group-hover:underline decoration-2 underline-offset-4">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-3 mb-8">
-                    {project.tech.map((techName, i) => {
-                      const skill = skills.find(s => s.name.toLowerCase() === techName.toLowerCase()) || 
-                                   skills.find(s => s.name.toLowerCase().includes(techName.toLowerCase()));
-                      const Icon = skill ? skill.icon : <Code2 className="w-4 h-4" />;
-                      
-                      return (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 text-sm font-medium border border-gray-200 dark:border-gray-700 rounded-full text-gray-600 dark:text-gray-300 flex items-center gap-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
-                        >
-                          {React.cloneElement(Icon, { className: "w-4 h-4" })}
-                          {techName}
-                        </span>
-                      );
-                    })}
-                  </div>
+                    
+                    {/* Project Title */}
+                    <h3 className="text-3xl font-display font-bold mb-6 group-hover:underline decoration-2 underline-offset-4">
+                      {project.title}
+                    </h3>
 
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-bold hover:gap-3 transition-all cursor-pointer">
-                    View Project <ArrowRight size={18} />
-                  </a>
+                    {/* Mobile only: Image here */}
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                      className="md:hidden bg-gray-100 dark:bg-gray-900 aspect-video rounded-xl overflow-hidden relative group-hover:shadow-2xl transition-all duration-500 mb-6"
+                    >
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </motion.div>
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg">
+                      {project.description}
+                    </p>
+                    
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-3 mb-8">
+                      {project.tech.map((techName, i) => {
+                        const skill = skills.find(s => s.name.toLowerCase() === techName.toLowerCase()) || 
+                                     skills.find(s => s.name.toLowerCase().includes(techName.toLowerCase()));
+                        const Icon = skill ? skill.icon : <Code2 className="w-4 h-4" />;
+                        
+                        return (
+                          <span 
+                            key={i}
+                            className="px-3 py-1 text-sm font-medium border border-gray-200 dark:border-gray-700 rounded-full text-gray-600 dark:text-gray-300 flex items-center gap-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+                          >
+                            {React.cloneElement(Icon, { className: "w-4 h-4" })}
+                            {techName}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    {/* View Project Link */}
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-bold hover:gap-3 transition-all cursor-pointer">
+                      View Project <ArrowRight size={18} />
+                    </a>
+                  </div>
+                  
+                  {/* Desktop only: Image on right side */}
+                  <motion.div 
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                    className="hidden md:block md:order-2 bg-gray-100 dark:bg-gray-900 aspect-video rounded-xl overflow-hidden relative group-hover:shadow-2xl transition-all duration-500"
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </motion.div>
                 </div>
-                
-                <motion.div 
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                  className="order-1 md:order-2 bg-gray-100 dark:bg-gray-900 aspect-video rounded-xl overflow-hidden relative group-hover:shadow-2xl transition-all duration-500"
-                >
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-contain p-2"
-                  />
-                </motion.div>
               </motion.div>
             ))}
           </div>
