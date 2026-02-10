@@ -81,6 +81,7 @@ function App() {
     { name: 'MongoDB', icon: <SiMongodb className="w-6 h-6" /> },
     { name: 'SQL', icon: <SiMysql className="w-6 h-6" /> },
     { name: 'Redux', icon: <SiRedux className="w-6 h-6" /> },
+    { name: 'Redux Toolkit', icon: <SiRedux className="w-6 h-6" /> },
     { name: 'Tailwind', icon: <SiTailwindcss className="w-6 h-6" /> },
     { name: 'TypeScript', icon: <SiTypescript className="w-6 h-6" /> },
     { name: 'Postman', icon: <SiPostman className="w-6 h-6" /> },
