@@ -25,7 +25,7 @@ import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNodedotjs, 
   SiExpress, SiMongodb, SiMysql, SiRedux, SiTailwindcss, 
   SiTypescript, SiPostman, SiGit, SiWebrtc, SiSocketdotio,
-  SiWhatsapp
+  SiWhatsapp, SiNextdotjs
 } from 'react-icons/si';
 
 // Animation variants
@@ -75,14 +75,15 @@ function App() {
     { name: 'HTML5', icon: <SiHtml5 className="w-6 h-6" /> },
     { name: 'CSS3', icon: <SiCss3 className="w-6 h-6" /> },
     { name: 'JavaScript', icon: <SiJavascript className="w-6 h-6" /> },
-    { name: 'React', icon: <SiReact className="w-6 h-6" /> },
+    { name: 'React.js', icon: <SiReact className="w-6 h-6" /> },
+    { name: 'Next.js', icon: <SiNextdotjs className="w-6 h-6" /> },
     { name: 'Node.js', icon: <SiNodedotjs className="w-6 h-6" /> },
-    { name: 'Express', icon: <SiExpress className="w-6 h-6" /> },
+    { name: 'Express.js', icon: <SiExpress className="w-6 h-6" /> },
     { name: 'MongoDB', icon: <SiMongodb className="w-6 h-6" /> },
     { name: 'SQL', icon: <SiMysql className="w-6 h-6" /> },
     { name: 'Redux', icon: <SiRedux className="w-6 h-6" /> },
     { name: 'Redux Toolkit', icon: <SiRedux className="w-6 h-6" /> },
-    { name: 'Tailwind', icon: <SiTailwindcss className="w-6 h-6" /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss className="w-6 h-6" /> },
     { name: 'TypeScript', icon: <SiTypescript className="w-6 h-6" /> },
     { name: 'Postman', icon: <SiPostman className="w-6 h-6" /> },
     { name: 'Git', icon: <SiGit className="w-6 h-6" /> },
@@ -94,7 +95,7 @@ function App() {
     {
       title: 'Bedtalk',
       description: 'A platform where strangers can connect over voice calls, text, and photos. Features real-time communication using WebRTC.',
-      tech: ['React', 'Express', 'Node.js', 'WebSockets', 'WebRTC', 'Tailwind'],
+      tech: ['React.js', 'Express.js', 'Node.js', 'WebSockets', 'WebRTC', 'Tailwind CSS'],
       icon: <MessageSquare className="w-8 h-8 mb-4" />,
       link: 'https://www.bedtalk.in',
       image: '/bedtalk.png'
@@ -102,7 +103,7 @@ function App() {
     {
       title: 'Pillow',
       description: 'A fully responsive website offering a smooth user experience. Built with a robust MERN stack backend.',
-      tech: ['React', 'Express', 'Node.js', 'MongoDB'],
+      tech: ['React.js', 'Express.js', 'Node.js', 'MongoDB'],
       icon: <Monitor className="w-8 h-8 mb-4" />,
       link: 'https://pillow-pi.vercel.app',
       image: '/pillow.png'
