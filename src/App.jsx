@@ -482,16 +482,20 @@ function App() {
                 href={link.href}
                 target={link.label === "Email" || link.label === "Phone" ? "_self" : "_blank"}
                 rel={link.label === "Email" || link.label === "Phone" ? "" : "noopener noreferrer"}
-                className="flex items-center gap-4 p-4 bg-gray-100/50 dark:bg-neutral-800/50 rounded-xl hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all w-full max-w-md mx-auto group cursor-pointer"
+                className="flex items-center gap-6 p-5 bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-2xl hover:border-black dark:hover:border-white hover:shadow-xl dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 w-full max-w-lg mx-auto group cursor-pointer relative overflow-hidden"
               >
-                <div className="p-3 bg-white dark:bg-black text-black dark:text-white rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                
+                <div className="p-4 bg-gray-50 dark:bg-black border border-gray-100 dark:border-neutral-800 text-black dark:text-white rounded-xl group-hover:scale-110 transition-transform duration-300 relative z-10">
                   {link.icon}
                 </div>
-                <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">{link.label}</div>
-                  <div className="text-lg font-bold text-black dark:text-white break-words overflow-hidden">{link.text || "View Profile"}</div>
+                <div className="text-left flex-1 min-w-0 relative z-10">
+                  <div className="text-xs font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500 mb-1">{link.label}</div>
+                  <div className="text-lg font-bold text-black dark:text-white break-words overflow-hidden group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-black group-hover:to-gray-600 dark:group-hover:from-white dark:group-hover:to-gray-400 transition-all">{link.text || "View Profile"}</div>
                 </div>
-                <ArrowRight className="ml-auto w-5 h-5 text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors" />
+                <div className="relative z-10 p-2 rounded-full border border-transparent group-hover:border-gray-200 dark:group-hover:border-neutral-700 transition-colors">
+                  <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors -rotate-45 group-hover:rotate-0 transform duration-300" />
+                </div>
               </a>
             ))}
           </div>
